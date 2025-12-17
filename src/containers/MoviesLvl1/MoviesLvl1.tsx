@@ -36,13 +36,11 @@ const MoviesLvl1 = () => {
             </form>
             <p>Movies to watch:</p>
             {moviesToWatch.map((movie) => (
-                <div className='d-flex justify-content-center align-items-center mb-3'>
-                    <input id={movie.id} value={movie.movie} className='form-control mb-2' style={{ maxWidth: '300px' }}/>
-                    <button className='btn-close' onClick={() => deleteMovie(movie.id)}></button>
-                </div>
+
             ))}
         </div>
     );
 };
 
 export default MoviesLvl1;
+
