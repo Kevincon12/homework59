@@ -17,6 +17,10 @@ const MoviesLvl1 = () => {
         ])
     };
 
+    const deleteMovie = (id: string) => {
+        setMoviesToWatch((prev) => prev.filter((movie) => movie.id !== id));
+    }
+
     return (
         <div>
             <form className='m-2' onSubmit={(e) => e.preventDefault()}>
@@ -34,7 +38,7 @@ const MoviesLvl1 = () => {
             {moviesToWatch.map((movie) => (
                 <div className='d-flex justify-content-center align-items-center mb-3'>
                     <input id={movie.id} value={movie.movie} className='form-control mb-2' style={{ maxWidth: '300px' }}/>
-                    <button className='btn-close'></button>
+                    <button className='btn-close' onClick={() => deleteMovie(movie.id)}></button>
                 </div>
             ))}
         </div>
