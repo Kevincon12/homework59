@@ -1,0 +1,32 @@
+import React, {useDebugValue, useState} from 'react';
+
+const MoviesLvl1 = () => {
+    const [moviesToWatch, setMoviesToWatch] = useState([
+        {id: '1', movie: 'Movie 1'},
+        {id: '2', movie: 'Movie 2'},
+        {id: '3', movie: 'Movie 3'},
+    ]);
+
+    return (
+        <div>
+            <form className='m-2' onSubmit={(e) => e.preventDefault()}>
+                <input
+                    type="text"
+                    className='input-group'
+                    placeholder='Enter Movie Name'
+                />
+
+                <button type='submit' className='btn btn-primary m-2'>Add</button>
+            </form>
+            <p>Movies to watch:</p>
+            {moviesToWatch.map((movie) => (
+                <div className='d-flex justify-content-center align-items-center mb-3'>
+                    <input id={movie.id} value={movie.movie} className='form-control mb-2' style={{ maxWidth: '300px' }}/>
+                    <button className='btn-close'></button>
+                </div>
+            ))}
+        </div>
+    );
+};
+
+export default MoviesLvl1;
