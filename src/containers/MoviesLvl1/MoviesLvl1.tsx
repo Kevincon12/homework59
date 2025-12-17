@@ -7,6 +7,16 @@ const MoviesLvl1 = () => {
         {id: '3', movie: 'Movie 3'},
     ]);
 
+    const [newMovie, setNewMovie] = useState('');
+
+    const makeNewMovie = () => {
+        if(newMovie.trim() === '') return;
+        setMoviesToWatch((prev) => [
+            ...prev,
+            {id: new Date().toISOString(), movie: newMovie},
+        ])
+    };
+
     return (
         <div>
             <form className='m-2' onSubmit={(e) => e.preventDefault()}>
@@ -14,9 +24,11 @@ const MoviesLvl1 = () => {
                     type="text"
                     className='input-group'
                     placeholder='Enter Movie Name'
+                    value={newMovie}
+                    onChange={(e) => setNewMovie(e.target.value)}
                 />
 
-                <button type='submit' className='btn btn-primary m-2'>Add</button>
+                <button type='submit' className='btn btn-primary m-2' onClick={makeNewMovie}>Add</button>
             </form>
             <p>Movies to watch:</p>
             {moviesToWatch.map((movie) => (
