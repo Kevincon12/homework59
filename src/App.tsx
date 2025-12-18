@@ -7,7 +7,7 @@ const App = () => {
 
   return (
     <>
-        {/*<MoviesLvl1/>*/}
+        <MoviesLvl1/>
         <hr/>
         <JokesLvl2/>
     </>
