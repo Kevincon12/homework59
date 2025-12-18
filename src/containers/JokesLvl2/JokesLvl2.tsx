@@ -9,7 +9,8 @@ const JokesLvl2 = () => {
         const data = await response.json();
 
         const joke = data.value;
-        console.log(joke);
+
+        setJokeString(joke);
     }
 
     useEffect(() => {
@@ -19,7 +20,9 @@ const JokesLvl2 = () => {
     return (
         <div>
             <p>If you wanna laugh click the button</p>
-            <button className='btn btn-primary'>Get joke</button>
+            <button className='btn btn-primary' onClick={makeJoke}>Get joke</button>
+
+            <div className='text-center'>{jokeString}</div>
         </div>
     );
 };
